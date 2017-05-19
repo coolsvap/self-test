@@ -1,6 +1,5 @@
 FROM coolsvap/centos-python:latest
 
-COPY build.sh /tmp/build.sh
+COPY build.sh /build/build.sh
 
-RUN ['chmod', '+x', '/tmp/build.sh']
-RUN ['./tmp/build.sh']
+RUN chmod +x /build/build.sh
