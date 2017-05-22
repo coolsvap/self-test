@@ -55,6 +55,9 @@ def connect_to_referee():
     # TODO: This logger doesn't work since 'app' isn't runnning yet.
     logger.info('Player ID: {} is connected to server!'.format(player.id))
     logger.info('what')
+    return jsonify(**{
+        'player': player.__dict__
+    })
 
 @app.route('/player/', methods=['GET'])
 def get_players():
