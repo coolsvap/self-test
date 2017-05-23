@@ -15,7 +15,6 @@ RUN yum -y install \
 COPY src/ /app/player
 COPY requirements.txt /app/player
 WORKDIR /app/player
-RUN pip install -r requirements.txt
 EXPOSE 5000
 ENTRYPOINT ["python"]
 CMD ["server.py"]
