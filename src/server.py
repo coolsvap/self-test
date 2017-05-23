@@ -3,7 +3,7 @@ import requests
 import json
 from player import Player
 
-player_file = open('player.json', 'r')
+player_file = open('/data/player.json', 'r')
 player_data = json.load(player_file)
 player = Player(player_data)
 app = Flask('ping_pong_player:' + str(player.id))
