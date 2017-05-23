@@ -1,6 +1,21 @@
-FROM coolsvap/centos-python:latest
+FROM centos:7
 
-COPY build.sh /tmp/build.sh
+MAINTAINER Swapnil Kulkarni <me@coolsvap.net>
 
-RUN ['chmod', '+x', '/tmp/build.sh']
-RUN ['./tmp/build.sh']
+RUN yum -y update && yum clean all
+	
+RUN yum -y install \
+    epel-release \
+  && yum clean all
+RUN yum -y install \
+    python-devel \
+    python-pip \
+  && yum clean all
+  
+COPY src/ /app/referee
+COPY requirements.txt /app/referee
+WORKDIR /app/referee
+RUN pip install -r requirements.txt
+EXPOSE 5000
+ENTRYPOINT ["python"]
+CMD ["server.py"]
