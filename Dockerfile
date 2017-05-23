@@ -13,7 +13,6 @@ RUN yum -y install \
   && yum clean all
   
 COPY src/ /app/player
-COPY requirements.txt /app/player
 WORKDIR /app/player
 EXPOSE 5000
 ENTRYPOINT ["python"]
