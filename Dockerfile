@@ -13,9 +13,7 @@ RUN yum -y install \
   && yum clean all
   
 COPY src/ /app/referee
-COPY requirements.txt /app/referee
 WORKDIR /app/referee
-RUN pip install -r requirements.txt
 EXPOSE 5000
 ENTRYPOINT ["python"]
 CMD ["server.py"]
