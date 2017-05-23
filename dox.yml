@@ -1,0 +1,13 @@
+testing:
+  images:
+    - centos:7
+  prep:
+    - python setup.py install
+
+testing:pep8:
+  commands:
+    - flake8
+
+testing:cover:
+  commands:
+    - /bin/echo "hello"
